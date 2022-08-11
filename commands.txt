@@ -1,0 +1,4 @@
+https://medium.com/employbl/generate-authentication-for-a-laravel-5-3-web-app-384781a5529f
+
+
+https://devtonight.com/articles/how-to-fix-laravel-sqlite-database-does-not-exist-error
