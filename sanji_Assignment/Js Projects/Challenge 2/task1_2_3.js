@@ -1,3 +1,5 @@
+//task1_2_3
+
 const taxableIncomes = [35000, 45000, 50000, 62000, 70500, 82500, 97000, 101000, 132000, 150000]
 let taxes = []
 let netIncome = []
