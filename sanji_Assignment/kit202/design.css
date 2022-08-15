@@ -200,35 +200,39 @@ section {
 }
 
 .lazenby {
-    background: url("bacpic.jpeg");
-    height: 620vh;
+    /* background: url("bacpic.jpeg"); */
+    /* height: 620vh; */
 }
 
 .trade {
-    color: black;
+    /* color: black;
     float: right;
     text-decoration-color: aqua;
-    padding: 20px 10px;
+    padding: 20px 10px; */
 }
 
 .nonveg img {
-    height: 470px;
-    width: 800px;
+    /* height: 470px;
+    width: 800px; */
+    height: 250px;
+    width: 350px;
 }
 
+.bev-section {}
+
 .veg img {
-    height: 470px;
-    width: 800px;
+    height: 250px;
+    width: 350px;
 }
 
 .veg {
-    float: right;
+    /* float: right;
     text-align: justify;
-    padding-right: 20px 25px;
+    padding-right: 20px 25px; */
 }
 
 .bev {
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .suzy {
