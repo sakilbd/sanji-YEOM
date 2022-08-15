@@ -1,0 +1,51 @@
+<DOCTYPE HTML>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>KIT202 ASSIGNMENT(secure web programming)</title>
+        <link rel="stylesheet" type="text/css" href="design.css" />
+    </head>
+
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <div id="includedContent"></div>
+        <header>
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="logoo.png" alt="" />
+                </div>
+
+                <h1>Y.E.O.M (Your Excellent On-time Meals) Pty Ltd</h1>
+
+                <!-- <ul class="CafeMenu">
+            <li><a href="#">HOMEPAGE</a></li>
+            <li><a href="masterlistpage.html">MASTERLIST</a></li>
+            <li><a href="utascafe.html">UTAS CAFE'S</a></li>
+            <li><a href="registration.html">Registration </a></li>
+            <li><a href="login.html">LOGIN</a>
+                
+                </ul> -->
+
+                <form action="action.php">
+                    <input id="search" name="item-addition" type="text" />
+                    <button id="btn-1">Search</button>
+                </form>
+            </div>
+            <div class="welcome">
+                <h1>Welcome to the Y.E.O.M</h1>
+                <br />
+                <br />
+                <a href="#">CONTACT US</a>
+                <br />
+            </div>
+        </header>
+    </body>
+    <script>
+        $(function() {
+            $("#includedContent").load("navbar.html");
+        });
+    </script>
+
+    </html>
+</DOCTYPE>

@@ -1,0 +1,45 @@
+<link rel="stylesheet" type="text/css" href="design.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div id="includedContent"></div>
+<!-- <div class ="CafeMenu">
+    <ul class="CafeMenu">
+            <li><a href="assign.html">HOMEPAGE</a></li>
+            <li><a href="masterlistpage.html">MASTERLIST</a></li>
+            <li><a href="utascafe.html">UTAS CAFE'S</a></li>
+            <li><a href="registration.html">Registration </a></li>
+                </ul>
+</div> -->
+
+
+
+<section>
+
+    <div class="login">
+        <div class="loginform">
+
+
+            <h1>Login Here</h1>
+            <form action="action.php">
+                Email:<br>
+                <input type="text" name="" placeholder="Enter Your email address">
+                <br> password:
+                <br>
+                <input type="password" name="" placeholder="Enter password">
+                <br><br>
+                <input type="submit" value="login">
+                <br>
+                <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label><br>
+                <span class="psw"><a href="#">Forgot password?</a></span>
+                <h2>Don't have an account!!</h2><a href="registration.html">create a new account</a>
+            </form>
+
+
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $("#includedContent").load("navbar.html");
+        });
+    </script>
