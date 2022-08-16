@@ -8,11 +8,12 @@
     margin: auto;
 }
 
-header {
+body {
     background: url("bc7.jpg");
-    height: 140vh;
+    height: 100vh;
+    width: 100vw;
     background-position: center;
-    position: relative;
+    /* position: relative; */
 }
 
 .CafeMenu {
@@ -49,16 +50,20 @@ header {
 .Welcome {
     position: absolute;
     text-align: center;
-    width: 700px;
-    height: 350px;
     color: bisque;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     margin: 20% 30%;
 }
 
-.welcome h1 {
-    font font-size: 100px;
-    text-decoration: none;
-    text-transform: capitalize;
+.welcome h1,
+h3 {
+    color: #FFFFFF;
+    /* background: #F7C1C1; */
+    text-shadow: 4px 3px 0px #7A7A7A;
+    color: #FFFFFF;
+    /* background: #F7C1C1; */
 }
 
 .welcome a {
@@ -67,9 +72,10 @@ header {
     float: bottom right;
 }
 
-.welcome a:hover {
+
+/* .welcome a:hover {
     background: black;
-}
+} */
 
 section {
     width: 100%;
@@ -151,7 +157,7 @@ section {
 
 .cafes {
     /* background: url(reg.jpg); */
-    background: skyblue;
+    background: beige;
     height: 100vh;
     width: 100%;
 }
@@ -254,25 +260,59 @@ section {
 }
 
 .masterlist {
-    padding-top: 13%;
-    padding-left: 10%;
+    /* padding-top: 13%;
+    padding-left: 10%; */
     background-color: beige;
     background-position: center;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .masterlist input {
     display: block;
     width: 100%;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     box-sizing: border-box;
-    margin-bottom: 20px;
-    border-radius: 25px;
+    /* margin-bottom: 20px;
+    border-radius: 25px; */
     font-size: 15px;
     letter-spacing: 1px;
     color: black;
     border: none;
 }
 
-.masterlist:hover {
+
+/* .masterlist:hover {
     border-bottom-color: aqua;
+} */
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.masterlist-container {
+    display: flex;
+    gap: 3rem;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+body {
+    background: beige !important;
+}
+
+.utascafe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

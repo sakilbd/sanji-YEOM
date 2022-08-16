@@ -1,30 +1,60 @@
 <link rel="stylesheet" type="text/css" href="design.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<div id="includedContent"></div>
-<div class="masterlist">
-    <h1><b>MasterList Page</b></h1>
 
-    <input type="checkbox" />BUTTER CHICKEN<br />
-    <input type="checkbox" />CHICKEN CURRY<br />
-    <input type="checkbox" />LAMB KORMA<br />
-    <input type="checkbox" />DUM BIRIYANI<br />
-    <input type="checkbox" />AUSSIE BEEF BURGER<br />
-    <input type="checkbox" />GRILLED SALMON WITH SALAD<br />
-    <input type="checkbox" />CHICKEN PARIAGANA<br />
-    <input type="checkbox" />VEGAN SAVOURI<br />
-    <input type="checkbox" />VEGAN CRISMAS WREATH<br />
-    <input type="checkbox" />Chicken Chettinad<br />
-    <input type="checkbox" />Ceaser Salad<br />
-    <input type="checkbox" />Kerala Karimeen<br />
-    <input type="checkbox" />Prawn Cutlets<br />
-    <input type="checkbox" />Grilled Salmon<br />
-    <input type="checkbox" />Snak Pack<br />
-    <input type="checkbox" />kebab<br />
+<body style="background: beige">
+    <div id="includedContent"></div>
+    <div class="container">
+        <div class="flex-center">
+            <div class="masterlist">
+                <h1><b>MasterList Page</b></h1>
+                <br>
+                <div class="masterlist-container">
+                    <div class="left">
+                        <span>BUTTER CHICKEN</span>
+                        <span>CHICKEN CURRY</span>
+                        <span>LAMB KORMA</span>
+                        <span>DUM BIRIYANI</span>
+                        <span>AUSSIE BEEF BURGER</span>
+                        <span>GRILLED SALMON WITH SALAD</span>
+                        <span>CHICKEN PARIAGANA</span>
+                        <span>VEGAN SAVOURI</span>
+                        <span>VEGAN CRISMAS WREATH</span>
+                        <span>Chicken Chettinad</span>
+                        <span>Ceaser Salad</span>
+                        <span>Kerala Karimeen</span>
+                        <span>Prawn Cutlets</span>
+                        <span>Grilled Salmon</span>
+                        <span>Snak Pack</span>
+                        <span>kebab</span>
 
-    <br /><br />
-    <button type="submit">DELETE</button> <button type="submit">ADD</button>
-</div>
 
+                    </div>
+                    <div class="right">
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                        <input type="checkbox" />
+                    </div>
+                </div>
+                <br /><br />
+                <button class="btn btn-danger" type="submit">DELETE</button>
+                <button class="btn btn-success" type="submit">ADD</button>
+            </div>
+        </div>
+    </div>
+</body>
 <script>
     $(function() {
         $("#includedContent").load("navbar.html");
