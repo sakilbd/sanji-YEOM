@@ -5,14 +5,52 @@
         <meta charset="utf-8" />
         <title>KIT202 ASSIGNMENT(secure web programming)</title>
         <link rel="stylesheet" type="text/css" href="design.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(function() {
+                $("#includedContent").load("navbar.html");
+            });
+        </script>
+
     </head>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 
     <body>
-        <div id="includedContent"></div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Y.E.O.M</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="assign.html">HOMEPAGE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="masterlistpage.html">MASTERLIST</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registration.html">Registration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">LOGIN</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="utascafe.html">UTAS Cafe</a>
+                        </li>
+                        <!-- <li class="nav-item ">
+                            <a class="nav-link href=" # ">Lazenby's</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- <div id="includedContent"></div> -->
 
         <div class="welcome">
             <div>
@@ -30,11 +68,6 @@
         </div>
     </body>
 
-    <script>
-        $(function() {
-            $("#includedContent").load("navbar.html");
-        });
-    </script>
 
     </html>
 </DOCTYPE>
