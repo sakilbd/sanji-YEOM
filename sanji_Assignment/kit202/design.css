@@ -74,8 +74,8 @@ header {
 section {
     width: 100%;
     height: 100vh;
-    background: url(logof.jpeg);
-    background-size: cover;
+    /* background: url(logof.jpeg); */
+    /* background-color: lightblue */
 }
 
 .login {
@@ -92,9 +92,10 @@ section {
     box-sizing: border-box;
 }
 
-.loginform:hover {
+
+/* .loginform:hover {
     background: rgba(255, 255, 255, .1);
-}
+} */
 
 .loginform input {
     display: block;
@@ -117,21 +118,17 @@ section {
 
 .register {
     position: relative;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 440px;
-    text-align: center;
 }
 
 .registrationform {
-    position: relative;
-    box-sizing: padding-box;
+    /* position: relative;
+    box-sizing: padding-box; */
 }
 
-.registrationform:hover {
+
+/* .registrationform:hover {
     background: rgba(255, 255, 255, .1);
-}
+} */
 
 .registrationform input {
     display: block;

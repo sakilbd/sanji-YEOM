@@ -1,7 +1,9 @@
-<link rel="stylesheet" type="text/css" href="design.css">
+<link rel="stylesheet" type="text/css" href="design.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<div id="includedContent"></div>
-<!-- <div class ="CafeMenu">
+
+<body style="background:lightblue">
+    <div id="includedContent"></div>
+    <!-- <div class ="CafeMenu">
     <ul class="CafeMenu">
             <li><a href="assign.html">HOMEPAGE</a></li>
             <li><a href="masterlistpage.html">MASTERLIST</a></li>
@@ -9,60 +11,65 @@
             <li><a href="login.html">Login </a></li>
                 </ul>
 </div> -->
-<section>
-    <h1 style="color: #fff ">REGISTRATION PAGE</h1>
+    <div class="container" style="width:30%">
+        <section>
+            <h1 style="">REGISTRATION PAGE</h1>
 
-    <div class="register">
-        <div class="registrationform">
-            <form method="post" id="register" action="">
-                <h2>Please Register here</h2>
-                <label>First Name: </label><br>
-                <input type="text" name="fname" id="name" placeholder="Enter your first name"><br>
-                <label>Surname: </label><br>
-                <input type="text" name="sname" id="name" placeholder="Enter your surname"><br>
-                <label>Which Country You are from?</label><br>
-                <input type="text" name="cname" id="name" placeholder="Enter your country"><br>
-                <label>Mobile Number</label><br>
-                <select id="phone">
-    <option>+61</option>
-    <option>+81</option>
-    <option>+88</option>
-    <option>+91</option>
-    <option>+09</option>
-    <option>+45</option>
-        
-    </select>
-                <input type="number" name="pnum" id="num" placeholder="Enter your phone number"><br>
+            <div class="registrationform">
+                <form method="post" id="register" action="">
+                    <h2>Please Register here</h2>
+                    <label>First Name: </label><br />
+                    <input type="text" name="fname" id="name" placeholder="Enter your first name" /><br />
+                    <label>Surname: </label><br />
+                    <input type="text" name="sname" id="name" placeholder="Enter your surname" /><br />
+                    <label>Which Country You are from?</label><br />
+                    <input type="text" name="cname" id="name" placeholder="Enter your country" /><br />
+                    <label>Mobile Number</label><br />
+                    <select id="phone">
+                            <option>+61</option>
+                            <option>+81</option>
+                            <option>+88</option>
+                            <option>+91</option>
+                            <option>+09</option>
+                            <option>+45</option>
+                        </select>
+                    <input type="number" name="pnum" id="num" placeholder="Enter your phone number" /><br />
 
-                <label>your email address:</label> <br>
-                <input type="email" name="mail" id="name" placeholder="Enter your Email"><br>
+                    <label>your email address:</label> <br />
+                    <input type="email" name="mail" id="name" placeholder="Enter your Email" /><br />
 
-                <label>Enter a password</label> <br>
-                <input type="password" name="pass" id="pass" placeholder="Enter a 6 carecter password"><br>
+                    <label>Enter a password</label> <br />
+                    <input type="password" name="pass" id="pass" placeholder="Enter a 6 carecter password" /><br />
 
-                <label>please Re-enter your password</label><br>
-                <input type="password" name="pass" id="name" placeholder=" Re Enter password"><br>
-                <label>Credit Card Number</label>
-                <input type="number" name="cnum" id="cnum" placeholder="Enter your card number"><br>
-                <label>Enter 3 Digit pin number</label>
-                <input type="password" name="cpass" id="cpass" placeholder="Type 3 digit code here"><br>
+                    <label>please Re-enter your password</label><br />
+                    <input type="password" name="pass" id="name" placeholder=" Re Enter password" /><br />
+                    <label>Credit Card Number</label>
+                    <input type="number" name="cnum" id="cnum" placeholder="Enter your card number" /><br />
+                    <label>Enter 3 Digit pin number</label>
+                    <input type="password" name="cpass" id="cpass" placeholder="Type 3 digit code here" /><br />
 
-                <input type="radio" name="male" id="male"><span id="male">&nbsp;male</span>&nbsp;&nbsp;
+                    <input type="radio" name="male" id="male" /><span id="male">&nbsp;male</span
+                        >&nbsp;&nbsp;
 
-                <input type="radio" name="female" id="female"><span id="female">&nbsp;female</span>&nbsp;&nbsp;
+                        <input type="radio" name="female" id="female" /><span
+                            id="female"
+                            >&nbsp;female</span
+                        >&nbsp;&nbsp;
 
-                <input type="radio" name="Other" id="Other"><span id="Other">&nbsp;Other</span>&nbsp;&nbsp;<br>
+                        <input type="radio" name="Other" id="Other" /><span
+                            id="Other"
+                            >&nbsp;Other</span
+                        >&nbsp;&nbsp;<br />
 
-                <input type="submit" value="submit" id="submit">
-
-
-            </form>
-        </div>
-
-
+                        <input type="submit" value="submit" id="submit" />
+                    </form>
+                </div>
+            </div>
+        </section>
     </div>
-    <script>
-        $(function() {
-            $("#includedContent").load("navbar.html");
-        });
-    </script>
+</body>
+<script>
+    $(function () {
+        $("#includedContent").load("navbar.html");
+    });
+</script>
