@@ -60,4 +60,8 @@ class ApiController extends Controller
 
     return "Restaurant added";
    }
+
+  public function catagory_add(Request $request){
+   return $request;
+  }
 }

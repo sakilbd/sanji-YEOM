@@ -19,6 +19,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/restaurantStyles/design.css') }}" >
+    @yield('styles')
+    
+    {{-- <link href="{{ asset('restaurantStyles/design.css') }}" rel="stylesheet"> --}}
 </head>
 <body>
     <div id="app">
@@ -112,11 +116,13 @@
                 </div>
             </div>
         </nav>
-
+     
         <main class="py-4">
             @yield('content')
         </main>
+      
     </div>
+    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
