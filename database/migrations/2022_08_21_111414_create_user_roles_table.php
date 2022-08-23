@@ -17,6 +17,7 @@ class CreateUserRolesTable extends Migration
             $table->increments('id');
             $table->string('role_name');
             $table->string('permission_ids');
+            $table->timestamps();
         });
     }
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ItemList;
 use Illuminate\Support\Carbon;
+use App\Models\RestaurantList;
 
 class ApiController extends Controller
 {
@@ -34,5 +35,29 @@ class ApiController extends Controller
     $items->save();
 
     return "data_Saved";
+   }
+   
+   public function restaurant_add(Request $request){
+    // return $request;
+    $items = new RestaurantList();
+    // return $items;
+    $id = Carbon::now()->format('YmdGis');
+    if ($request->file('image') != null) {
+      $req_image = $request->file('image');
+      $imgExtension = $req_image->getclientoriginalextension();
+      $imageName = 'item'.$id.'.' . $imgExtension;
+      $uploadPath = 'imgStorage';
+      $req_image->move($uploadPath, $imageName);
+      $imageUrl = $uploadPath . '/' . $imageName;
+      $items->image =  $imageUrl;
+    }
+    
+    $items->name = $request->name;
+    $items->manager_user_id = $request->manager_user_id;
+    $items->created_at = $request->created_at;
+    $items->updated_at = $request->updated_at;
+    $items->save();
+
+    return "Restaurant added";
    }
 }

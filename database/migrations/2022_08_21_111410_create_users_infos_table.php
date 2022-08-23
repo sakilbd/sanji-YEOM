@@ -26,6 +26,7 @@ class CreateUsersInfosTable extends Migration
             $table->integer('pin');
             $table->integer('gender');
             $table->integer('card_balance');
+            $table->timestamps();
         });
     }
 

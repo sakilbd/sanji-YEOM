@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('content')
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> --}}
-    {{-- {{ $user = Auth::user(); }}
-    <h1>{{ $user->id }}</h1> --}}
+
     <div class="nav-item dropdown">
         {{-- <div>
           <a class="dropdown-item" href="{{ route('logout') }}"

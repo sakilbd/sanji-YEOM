@@ -73,8 +73,25 @@
                                     </form>
                                 </div>
                             </li> --}}
+                            <?php if((Auth::user())){
+                                $user = Auth::user()->role_name;
+                            } 
+                            ?>
+                            @if(isset($user))
+                            @if($user == 'admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('restaurant-list')}}">Restaurant List</a>
+                            </li>
+                            
+                            @endif
+                            @endif
                         @endguest
                     </ul>
+                    <?php if((Auth::user())){
+                        $user = Auth::user()->role_name;
+                    } 
+                    ?>
+                  
                     <div class="nav-item dropdown">
                         {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}

@@ -20,6 +20,7 @@ class CreateOrderManagementsTable extends Migration
             $table->integer('client_id');
             $table->string('order_status');
             $table->integer('total_price');
+            $table->timestamps();
         });
     }
 

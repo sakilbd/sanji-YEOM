@@ -16,7 +16,9 @@ class CreateRestaurantListsTable extends Migration
         Schema::create('restaurant_lists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('image');
             $table->integer('manager_user_id');
+            $table->timestamps();
         });
     }
 
