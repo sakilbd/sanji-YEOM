@@ -11,7 +11,7 @@
                     <div class="col-md-4">
                        
                             <div class="cafe-section">
-                                <a href="">
+                                <a href="{{ route('item_order_page',['id' =>$restaurants->id]) }}">
                                     <h2>{{ $restaurants->name }}</h2>
 
                                     <img src={{ $restaurants->image }} />

@@ -13,4 +13,8 @@ class viewOnlyBladesController extends Controller
         // return $restaurant_list;
         return view('pages.restaurant_list',compact('restaurant_list'));
     }
+    public function item_order_page(Request $req){
+        return view('pages.item_order_page');
+
+    }
 }
