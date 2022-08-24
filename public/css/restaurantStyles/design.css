@@ -205,7 +205,8 @@ section {
 }
 
 .cafe-section>a>img {
-    width: 400px;
+    width: 100% !important;
+    height: 200px !important;
 }
 
 .lazenby {
