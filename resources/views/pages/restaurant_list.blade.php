@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    {{ Auth::user()->name }}
+    
     <div class="container">
         <div class="cafes">
             <h1 class="text-dark">University of Tasmania's Cafe</h1>
@@ -11,7 +11,7 @@
                     <div class="col-md-4">
                        
                             <div class="cafe-section">
-                                <a href="{{ route('item_order_page',['id' =>$restaurants->id]) }}">
+                                <a href="{{ route('item_order_page',['restaurant_id' =>$restaurants->id]) }}">
                                     <h2>{{ $restaurants->name }}</h2>
 
                                     <img src={{ $restaurants->image }} />

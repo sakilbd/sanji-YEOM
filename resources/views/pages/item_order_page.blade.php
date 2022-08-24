@@ -4,10 +4,10 @@
 <div class="utascafe">
     <div class="">
         <a>
-            <h1 style="text-align:center;"><u>Trade table Cafe </u></h1>
+            <h1 style="text-align:center;"><u>{{ $restaurant_info->name }} </u></h1>
             <br />
 
-            <img src="t1.jpg" style="width:100vw; height:500px" />
+            <img src={{ asset($restaurant_info->cover_photo) }} style="width:100vw; height:500px" />
         </a><br />
         <br />
     </div>

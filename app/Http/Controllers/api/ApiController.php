@@ -51,6 +51,15 @@ class ApiController extends Controller
       $imageUrl = $uploadPath . '/' . $imageName;
       $items->image =  $imageUrl;
     }
+    if ($request->file('cover_photo') != null) {
+      $req_image = $request->file('cover_photo');
+      $imgExtension = $req_image->getclientoriginalextension();
+      $imageName = 'coverPhoto'.$id.'.' . $imgExtension;
+      $uploadPath = 'imgStorage';
+      $req_image->move($uploadPath, $imageName);
+      $imageUrl = $uploadPath . '/' . $imageName;
+      $items->cover_photo =  $imageUrl;
+    }
     
     $items->name = $request->name;
     $items->manager_user_id = $request->manager_user_id;

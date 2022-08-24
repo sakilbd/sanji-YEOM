@@ -17,6 +17,7 @@ class CreateRestaurantListsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('image');
+            $table->string('cover_photo');
             $table->integer('manager_user_id');
             $table->timestamps();
         });

@@ -14,7 +14,9 @@ class viewOnlyBladesController extends Controller
         return view('pages.restaurant_list',compact('restaurant_list'));
     }
     public function item_order_page(Request $req){
-        return view('pages.item_order_page');
+        $restaurant_info = RestaurantList::where('id',$req->restaurant_id)->first();
+        // return $restaurant_info;
+        return view('pages.item_order_page',compact('restaurant_info'));
 
     }
 }

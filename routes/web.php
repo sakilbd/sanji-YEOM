@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/restaurant-list', [viewOnlyBladesController::class, 'restaurant_list'])->name('restaurant_list');
 
-Route::get('/item_order_page/{id}', [viewOnlyBladesController::class, 'item_order_page'])->name('item_order_page');
+Route::get('/item_order_page/{restaurant_id}', [viewOnlyBladesController::class, 'item_order_page'])->name('item_order_page');
 
 
 
