@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RestaurantList;
+use App\Models\ItemList;
 
 class viewOnlyBladesController extends Controller
 {
@@ -15,8 +16,10 @@ class viewOnlyBladesController extends Controller
     }
     public function item_order_page(Request $req){
         $restaurant_info = RestaurantList::where('id',$req->restaurant_id)->first();
+        $item = ItemList::where('restaurant_id',$req->restaurant_id)->get();
+        
         // return $restaurant_info;
-        return view('pages.item_order_page',compact('restaurant_info'));
+        return view('pages.item_order_page',compact('restaurant_info','item'));
 
     }
 }

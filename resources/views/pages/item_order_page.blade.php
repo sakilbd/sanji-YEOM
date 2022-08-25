@@ -42,24 +42,13 @@
         </div>
         <h1><b>FOOD MENU </b></h1>
         <div class="nonveg row">
+            @foreach($item as $item)
             <div class="bev-section col-md-4">
-                <img src="s2.jpg" />
-                <p>Sandwitch -- 7.95 au$</p>
+                <img src="{{ asset($item->item_image_url) }}" />
+                <p>{{ $item->name }} -- {{ $item->price }} au$</p>
             </div>
-            <div class="bev-section col-md-4">
-                <img src="s3.jpg" />
-                <p>ceaser Salad -- 20 au$</p>
-            </div>
-            <div class="bev-section col-md-4">
-                <img src="burger.jpg" />
-                <p>Aussie Beef Burger-- 8.65 $</p>
-            </div>
-
-            <div class="bev-section col-md-4">
-
-                <img src="s1.jpg" />
-                <p>SHUSI--Price 5.50(each)</p>
-            </div>
+            @endforeach
+            
 
         </div>
         <div class="bev-section col-md-12">
