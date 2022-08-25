@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\ItemList;
 use Illuminate\Support\Carbon;
 use App\Models\RestaurantList;
+use App\Models\ItemCatagory;
 
 class ApiController extends Controller
 {
@@ -34,7 +35,7 @@ class ApiController extends Controller
     $items->updated_at = $request->updated_at;
     $items->save();
 
-    return "data_Saved";
+    return "Item Added";
    }
    
    public function restaurant_add(Request $request){
@@ -71,6 +72,16 @@ class ApiController extends Controller
    }
 
   public function catagory_add(Request $request){
-   return $request;
+    $catagory = new ItemCatagory();
+
+    $catagory->catagory_name = $request->catagory_name;
+    $catagory->created_at = $request->created_at;
+    $catagory->updated_at = $request->updated_at;
+    $catagory->save();
+
+    
+
+
+   return "Catagorry Added";
   }
 }
