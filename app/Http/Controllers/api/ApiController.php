@@ -9,6 +9,7 @@ use Illuminate\Support\Carbon;
 use App\Models\RestaurantList;
 use App\Models\ItemCatagory;
 use App\Models\UsersInfo;
+use App\Models\OrderManagement;
 
 class ApiController extends Controller
 {
@@ -87,5 +88,10 @@ class ApiController extends Controller
     UsersInfo::create($request->all());
     return 'User Detailed Info added';
     
+  }
+
+  public function order_insert(Request $request){
+    OrderManagement::create($request->all());
+     return "order ManageMent added";
   }
 }

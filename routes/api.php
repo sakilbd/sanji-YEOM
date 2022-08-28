@@ -27,6 +27,8 @@ Route::post('/item_insert', [ApiController::class, 'item_insert'])->name('item_i
 Route::post('/restaurant_add', [ApiController::class, 'restaurant_add'])->name('restaurant_add');
 Route::post('/catagory_add', [ApiController::class, 'catagory_add'])->name('catagory_add');
 Route::post('/user_info_add', [ApiController::class, 'user_info_add'])->name('user_info_add');
+Route::post('/order_insert', [ApiController::class, 'order_insert'])->name('order_insert');
+
 
 
 
