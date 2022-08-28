@@ -30,7 +30,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -92,6 +92,15 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('restaurant-list') }}">Restaurant List</a>
                                     </li>
+                                    
+                                @endif
+                            @endif
+                            @if (isset($user))
+                                @if ($user == 'admin')
+                                    <li class="nav-item">
+                                        <a class="nav-link">Balance:&nbsp<b><span id="nav-balance"></span></b>&nbsp$au</a>
+                                    </li>
+                                    
                                 @endif
                             @endif
                         @endguest
@@ -120,10 +129,9 @@
                             </div>
                         </div>
                     @endif
+                    
                     <div class="nav-item ml-auto ">
-                        {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a> --}}
+            
 
                         @if (isset($user))
                             <div class="" href="{{ route('logout') }}">
@@ -134,6 +142,7 @@
                                         d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                                 </svg>
                             </div>
+                            
                         @endif
 
 
@@ -145,14 +154,14 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main style="margin-top:5%;">
             @yield('content')
         </main>
 
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
     @yield('scripts')
 
 </body>

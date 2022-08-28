@@ -142,6 +142,8 @@
         var beverage = {!! json_encode($beverage, JSON_HEX_TAG) !!};
         let balance = {!! json_encode($user_balance, JSON_HEX_TAG) !!};
         var moneyLeft = parseInt(balance.card_balance);
+        const navBalance = document.getElementById("nav-balance");
+        navBalance.innerHTML = moneyLeft;
 
 
 
@@ -152,6 +154,7 @@
             let plusButtonId = item.id + 'plusButton';
             let digitId = item.id + 'digit';
             const minusBtn = document.getElementById(minusButtonId);
+
             const plusBtn = document.getElementById(plusButtonId);
             const digit = document.getElementById(digitId);
 
@@ -164,20 +167,37 @@
 
                 if (number < 0) {
                     number = 0;
+                } else {
+                    moneyLeft += parseInt(item.price);
                 }
-                moneyLeft += parseInt(item.price);
-                alert(moneyLeft);
+                navBalance.innerHTML = moneyLeft;
                 digit.innerHTML = number;
+                // alert(moneyLeft);
+
 
             });
             plusBtn.addEventListener("click", function() {
                 c('plusClicked');
                 let number = parseInt(digit.innerHTML) + 1;
 
-                
-                moneyLeft -=parseInt(item.price);
-                alert(moneyLeft);
-                digit.innerHTML = number;
+
+
+                moneyLeft -= parseInt(item.price);
+                if (moneyLeft > 0) {
+
+                    navBalance.innerHTML = moneyLeft;
+
+                    digit.innerHTML = number;
+                } else {
+                    moneyLeft += parseInt(item.price); //as clicking after minimum balance does its moneyleft calcuations 
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'balance limit exceeded',
+                        // footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                }
+
 
             });
         })
@@ -198,7 +218,12 @@
 
                 if (number < 0) {
                     number = 0;
+                } else {
+                    moneyLeft += parseInt(item.price);
                 }
+
+                // alert(moneyLeft);
+                navBalance.innerHTML = moneyLeft;
                 digit.innerHTML = number;
 
             });
@@ -206,10 +231,21 @@
                 c('plusClicked');
                 let number = parseInt(digit.innerHTML) + 1;
 
-                if (number < 0) {
-                    number = 0;
+
+
+                if (moneyLeft > 0) {
+                    moneyLeft -= parseInt(item.price);
+                    navBalance.innerHTML = moneyLeft;
+
+                    digit.innerHTML = number;
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'balance limit exceeded',
+                        // footer: '<a href="">Why do I have this issue?</a>'
+                    })
                 }
-                digit.innerHTML = number;
 
             });
         })
