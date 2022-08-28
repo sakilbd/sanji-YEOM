@@ -59,7 +59,7 @@
 
                                 </div>
                                 <div class="digit">
-                                    <div id={{ $item->id.'digit' }} class="digit-number">0</div>
+                                    <div id={{ $item->id . 'digit' }} class="digit-number">0</div>
                                 </div>
 
                                 <div class="symbols">
@@ -95,7 +95,7 @@
 
                                 </div>
                                 <div class="digit">
-                                    <div id={{ $item->id.'digit' }} class="digit-number">0</div>
+                                    <div id={{ $item->id . 'digit' }} class="digit-number">0</div>
                                 </div>
 
                                 <div class="symbols">
@@ -140,16 +140,21 @@
         const c = console.log.bind(console);
         var foods = {!! json_encode($food, JSON_HEX_TAG) !!};
         var beverage = {!! json_encode($beverage, JSON_HEX_TAG) !!};
+        let balance = {!! json_encode($user_balance, JSON_HEX_TAG) !!};
+        var moneyLeft = parseInt(balance.card_balance);
+
+
 
 
         foods.forEach(item => {
             c(item.id);
-            let minusButtonId = item.id +'minusButton';
-            let plusButtonId = item.id +'plusButton';
-            let digitId = item.id +'digit';
+            let minusButtonId = item.id + 'minusButton';
+            let plusButtonId = item.id + 'plusButton';
+            let digitId = item.id + 'digit';
             const minusBtn = document.getElementById(minusButtonId);
             const plusBtn = document.getElementById(plusButtonId);
             const digit = document.getElementById(digitId);
+
             c(digit.innerHTML)
 
 
@@ -160,6 +165,8 @@
                 if (number < 0) {
                     number = 0;
                 }
+                moneyLeft += parseInt(item.price);
+                alert(moneyLeft);
                 digit.innerHTML = number;
 
             });
@@ -167,18 +174,18 @@
                 c('plusClicked');
                 let number = parseInt(digit.innerHTML) + 1;
 
-                if (number < 0) {
-                    number = 0;
-                }
+                
+                moneyLeft -=parseInt(item.price);
+                alert(moneyLeft);
                 digit.innerHTML = number;
 
             });
         })
         beverage.forEach(item => {
             c(item.id);
-            let minusButtonId = item.id +'minusButton';
-            let plusButtonId = item.id +'plusButton';
-            let digitId = item.id +'digit';
+            let minusButtonId = item.id + 'minusButton';
+            let plusButtonId = item.id + 'plusButton';
+            let digitId = item.id + 'digit';
             const minusBtn = document.getElementById(minusButtonId);
             const plusBtn = document.getElementById(plusButtonId);
             const digit = document.getElementById(digitId);

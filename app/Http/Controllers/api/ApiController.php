@@ -8,6 +8,7 @@ use App\Models\ItemList;
 use Illuminate\Support\Carbon;
 use App\Models\RestaurantList;
 use App\Models\ItemCatagory;
+use App\Models\UsersInfo;
 
 class ApiController extends Controller
 {
@@ -78,10 +79,13 @@ class ApiController extends Controller
     $catagory->created_at = $request->created_at;
     $catagory->updated_at = $request->updated_at;
     $catagory->save();
-
-    
-
-
    return "Catagorry Added";
+  }
+
+  public function user_info_add(Request $request){
+    
+    UsersInfo::create($request->all());
+    return 'User Detailed Info added';
+    
   }
 }

@@ -26,6 +26,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/item_insert', [ApiController::class, 'item_insert'])->name('item_insert');
 Route::post('/restaurant_add', [ApiController::class, 'restaurant_add'])->name('restaurant_add');
 Route::post('/catagory_add', [ApiController::class, 'catagory_add'])->name('catagory_add');
+Route::post('/user_info_add', [ApiController::class, 'user_info_add'])->name('user_info_add');
+
 
 
 
