@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+   
     <div class="utascafe">
         <div class="">
             <a>
@@ -12,7 +13,6 @@
             <br />
         </div>
     </div>
-
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -70,7 +70,8 @@
 
                     </div>
 
-                    <button type="button" class="btn btn-success col-md-12">Add To Cart</button>
+                    <button id={{ $item->id . 'button' }} type="button" class="btn btn-success col-md-12">Add To
+                        Cart</button>
 
 
                 </div>
@@ -105,7 +106,8 @@
                         </div>
 
                     </div>
-                    <button type="button" class="btn btn-success col-md-12">Add To Cart</button>
+                    <button id={{ $item->id . 'button' }} type="button" class="btn btn-success col-md-12">Add To
+                        Cart</button>
                 </div>
             @endforeach
 
@@ -133,6 +135,9 @@
     </div>
     </div>
     </div>
+    @php
+    $timestamp = Carbon\Carbon::now()->toDateTimeString();
+    @endphp
 @endsection
 
 @section('scripts')
@@ -141,6 +146,11 @@
         var foods = {!! json_encode($food, JSON_HEX_TAG) !!};
         var beverage = {!! json_encode($beverage, JSON_HEX_TAG) !!};
         let balance = {!! json_encode($user_balance, JSON_HEX_TAG) !!};
+        var user = {!! Auth()->user()->toJson() !!};
+        var timeStamp = {!! json_encode($timestamp, JSON_HEX_TAG) !!};
+
+
+
         var moneyLeft = parseInt(balance.card_balance);
         const navBalance = document.getElementById("nav-balance");
         navBalance.innerHTML = moneyLeft;
@@ -153,13 +163,19 @@
             let minusButtonId = item.id + 'minusButton';
             let plusButtonId = item.id + 'plusButton';
             let digitId = item.id + 'digit';
+            let btnId = item.id + 'button';
             const minusBtn = document.getElementById(minusButtonId);
 
             const plusBtn = document.getElementById(plusButtonId);
+            const submitBtn = document.getElementById(btnId);
             const digit = document.getElementById(digitId);
 
             c(digit.innerHTML)
-
+            submitBtn.addEventListener("click", function() {
+                let totalPrice = parseInt(digit.innerHTML) * item.price;
+                var timestamp = new Date().getTime();
+                itemSubmit(item.id, digit.innerHTML, user.id, 0, totalPrice, timeStamp, timeStamp)
+            });
 
             minusBtn.addEventListener("click", function() {
                 c('minusClicked');
@@ -189,7 +205,8 @@
 
                     digit.innerHTML = number;
                 } else {
-                    moneyLeft += parseInt(item.price); //as clicking after minimum balance does its moneyleft calcuations 
+                    moneyLeft += parseInt(item
+                        .price); //as clicking after minimum balance does its moneyleft calcuations 
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -206,10 +223,18 @@
             let minusButtonId = item.id + 'minusButton';
             let plusButtonId = item.id + 'plusButton';
             let digitId = item.id + 'digit';
+            let btnId = item.id + 'button';
             const minusBtn = document.getElementById(minusButtonId);
             const plusBtn = document.getElementById(plusButtonId);
             const digit = document.getElementById(digitId);
-            c(digit.innerHTML)
+            const submitBtn = document.getElementById(btnId);
+            c(digit.innerHTML);
+
+            submitBtn.addEventListener("click", function() {
+                let totalPrice = parseInt(digit.innerHTML) * item.price;
+                var timestamp = new Date().getTime();
+                itemSubmit(item.id, digit.innerHTML, user.id, 0, totalPrice, timeStamp, timeStamp)
+            });
 
 
             minusBtn.addEventListener("click", function() {
@@ -249,5 +274,45 @@
 
             });
         })
+
+        let itemSubmit = (itemId, quantity, client_id, order_status, total_price, create_time, update_time) => {
+
+            $.ajax({
+                type: 'POST',
+                url: '/api/order_insert', //api post call
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    item_id: itemId,
+                    quantity: quantity,
+                    client_id: client_id,
+                    order_status: order_status,
+                    total_price: total_price,
+                    created_at: create_time,
+                    updated_at: update_time,
+
+
+
+                },
+
+                error(err) {
+                    console.log(err.responseJSON.message);
+                    // Swal.fire(
+                    //     'errors!',
+                    //     err.responseJSON.message,
+                    //     'error'
+                    // )
+                },
+
+                success(response) {
+                    console.log(response.message);
+                    Swal.fire(
+                        'Success!',
+                        response.message,
+                        'success'
+                    )
+                },
+            });
+
+        }
     </script>>
 @endsection

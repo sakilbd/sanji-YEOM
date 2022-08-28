@@ -10,3 +10,4 @@ class OrderManagement extends Model
     use HasFactory;
     protected $fillable =['item_id','quantity','client_id','order_status','total_price','created_at','updated_at'];
 }
+

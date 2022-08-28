@@ -10,9 +10,11 @@ use App\Models\RestaurantList;
 use App\Models\ItemCatagory;
 use App\Models\UsersInfo;
 use App\Models\OrderManagement;
+use App\Traits\ApiResponser;
 
 class ApiController extends Controller
 {
+    use ApiResponser;
    public function item_insert(Request $request){
       // return $request;
     $items = new ItemList;
@@ -92,6 +94,7 @@ class ApiController extends Controller
 
   public function order_insert(Request $request){
     OrderManagement::create($request->all());
-     return "order ManageMent added";
+    return $this->success("Item Added To Cart",'');
+    
   }
 }

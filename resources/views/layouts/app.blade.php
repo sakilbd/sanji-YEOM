@@ -92,17 +92,18 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('restaurant-list') }}">Restaurant List</a>
                                     </li>
-                                    
-                                @endif
-                            @endif
-                            @if (isset($user))
-                                @if ($user == 'admin')
                                     <li class="nav-item">
                                         <a class="nav-link">Balance:&nbsp<b><span id="nav-balance"></span></b>&nbsp$au</a>
                                     </li>
-                                    
+                                    <li class="nav-item">
+                                       <span class="fa-stack fa-1.5x has-badge" data-count="0">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                    </li>
                                 @endif
                             @endif
+
                         @endguest
 
                     </ul>
@@ -129,20 +130,19 @@
                             </div>
                         </div>
                     @endif
-                    
+
                     <div class="nav-item ml-auto ">
-            
+
 
                         @if (isset($user))
-                            <div class="" href="{{ route('logout') }}">
-                                {{ $user->name }} &nbsp<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                    fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <div class="">
+                                {{ $user->name }} &nbsp<svg xmlns="http://www.w3.org/2000/svg" width="32"
+                                    height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                                     <path fill-rule="evenodd"
                                         d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                                 </svg>
                             </div>
-                            
                         @endif
 
 

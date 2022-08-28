@@ -86,3 +86,20 @@ i:active {
     display: flex;
     justify-content: space-between;
 }
+
+#toasts {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.toast {
+    background-color: white;
+    color: rebeccapurple;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    margin: .5rem;
+}
