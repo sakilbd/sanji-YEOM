@@ -1,0 +1,88 @@
+.digit-portion {
+    display: flex;
+    /* background: blue; */
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.digit-right-portion {
+    display: flex;
+    /* background: blue; */
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.digit {
+    /* background: black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.digit-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #808080;
+}
+
+.digit-number-right-portion {
+    font-size: 30px;
+    font-weight: bold;
+    color: #808080;
+}
+
+.symbols {
+    /* background: pink; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+}
+
+.symbols-circle {
+    /* height: 25px;
+    width: 25px; */
+    text-align: center;
+}
+
+i.fa-plus,
+i.fa-minus {
+    background: transparent;
+    display: inline-block;
+    border-radius: 90%;
+    box-shadow: 0px 0px 2px #888;
+    border: .5px solid black;
+    padding: 0.3em 0.4em;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    /* transition: all .2s ease-in-out; */
+    transform: scale(.9);
+}
+
+i:active {
+    background-color: lightblue;
+    transform: scale(.8);
+}
+
+
+/* i:hover {
+    transform: scale(1.1)
+} */
+
+.digit-text {
+    position: relative;
+    color: #1E1E1E;
+    font-weight: bold;
+    font-size: 15px;
+    /* margin-bottom: -10%; */
+}
+
+.pricing-part {
+    display: flex;
+    justify-content: space-between;
+}

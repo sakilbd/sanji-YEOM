@@ -232,11 +232,14 @@ section {
     /* background: red; */
 }
 
-.bev-section {}
+.bev-section img {
+    height: 250px;
+    width: 100%;
+}
 
 .veg img {
     height: 250px;
-    width: 350px;
+    width: 100%;
 }
 
 .veg {

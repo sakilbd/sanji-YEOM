@@ -19,8 +19,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('css/restaurantStyles/design.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/itemsStyles/items.css') }}">
+
     @yield('styles')
 
     {{-- <link href="{{ asset('restaurantStyles/design.css') }}" rel="stylesheet"> --}}
