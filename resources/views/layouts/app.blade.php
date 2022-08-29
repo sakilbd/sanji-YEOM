@@ -96,10 +96,14 @@
                                         <a class="nav-link">Balance:&nbsp<b><span id="nav-balance"></span></b>&nbsp$au</a>
                                     </li>
                                     <li class="nav-item">
-                                       <span class="fa-stack fa-1.5x has-badge" data-count="0">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                                      </span>
+                                        
+                                        <a class="nav-link" href="{{url('order_cart')}}">Order Cart</a>
+
+                                            {{-- <span class="fa-stack fa-1.5x has-badge" data-count="0">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                                            </span> --}}
+                                        
                                     </li>
                                 @endif
                             @endif

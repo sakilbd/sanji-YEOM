@@ -25,6 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/restaurant-list', [viewOnlyBladesController::class, 'restaurant_list'])->name('restaurant_list');
 
 Route::get('/item_order_page/{restaurant_id}', [viewOnlyBladesController::class, 'item_order_page'])->name('item_order_page');
+Route::get('/order_cart', [viewOnlyBladesController::class, 'order_cart'])->name('order_cart');
+
 
 
 
