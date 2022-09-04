@@ -22,6 +22,12 @@
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('css/restaurantStyles/design.css') }}">
     <link rel="stylesheet" href="{{ asset('css/itemsStyles/items.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <style>
+        th,td{
+            text-align:center;
+        }
+    </style>
 
     @yield('styles')
 
@@ -85,15 +91,21 @@
                             </li> --}}
                             <?php if (Auth::user()) {
                                 $user = Auth::user()->role_name;
+                                $users = Auth::user()->get();
                             }
                             ?>
+                          
                             @if (isset($user))
                                 @if ($user == 'admin')
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('restaurant-list') }}">Restaurant List</a>
                                     </li>
+                                    @php
+                                    $balance = DB::table('users_infos')->where('user_id',$users[0]->id)->first();
+                                    @endphp
+                                   
                                     <li class="nav-item">
-                                        <a class="nav-link">Balance:&nbsp<b><span id="nav-balance"></span></b>&nbsp$au</a>
+                                        <a class="nav-link">Balance:&nbsp<b><span id="nav-balance"> {{ $balance->card_balance }} </span></b>&nbsp$au</a>
                                     </li>
                                     <li class="nav-item">
                                         

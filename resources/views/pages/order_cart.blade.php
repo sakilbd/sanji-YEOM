@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
         <div class="row">
-            <aside class="col-lg-8">
+            <aside class="col-lg-7">
                 <div class="card">
                     <div class="table-responsive">
                         <table class="table table-borderless table-shopping-cart">
@@ -62,12 +63,12 @@
                 </div>
             </aside>
 
-            <aside class="col-lg-4">
+            <aside class="col-lg-5">
 
                 <div class="card">
                     <div class="card-body">
                         <dl class="dlist-align">
-                            <dt>Add ons <span id="total-price" class="text-right">0</span></dt>
+                            <dt>Add ons </dt>
                             {{-- <dd >69.97</dd> --}}
                         </dl>
                         <table class="table table-borderless table-shopping-cart">
@@ -75,14 +76,35 @@
                                 <tr>
                                     <th>Item</th>
                                     <th>Price</th>
-                                    <th>Price</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>b</td>
-                                    <td>c</td>
-                                </tr>
+                                @foreach ($addons as $item)
+                                    <tr>
+
+                                        <td>{{ $item->name }}</td>
+                                        <td>${{ $item->price }}</td>
+                                        <td>
+                                            <div>
+                                                <div class="digit-right-portion">
+                                                    <div class="symbols">
+                                                        <i id={{ $item->id . 'minusButton' }} class="fa-solid fa-minus"></i>
+
+                                                    </div>
+                                                    <div class="digit">
+                                                        <div id={{ $item->id . 'digit' }} class="digit-number">0</div>
+                                                    </div>
+
+                                                    <div class="symbols">
+                                                        <i id={{ $item->id . 'plusButton' }} class="fa-solid fa-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
 
@@ -123,8 +145,9 @@
             let id = item.id + "price";
             const priceId = document.getElementById(id);
             totalPrice += parseInt(priceId.innerHTML);
-
+           
         });
+       
         totalPriceDiv.innerHTML = totalPrice;
     </script>
 @endsection
