@@ -105,7 +105,7 @@
                                     @endphp
                                    
                                     <li class="nav-item">
-                                        <a class="nav-link">Balance:&nbsp<b><span id="nav-balance"> {{ $balance->card_balance }} </span></b>&nbsp$au</a>
+                                        <a class="nav-link">Balance:&nbsp<b><span id="nav-balance"> @if(isset($balance)){{ $balance->card_balance }}@endif </span></b>&nbsp$au</a>
                                     </li>
                                     <li class="nav-item">
                                         

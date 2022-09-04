@@ -133,13 +133,16 @@
             </aside>
         </div>
     </div>
+    @php
+    $timestamp = Carbon\Carbon::now()->toDateTimeString();
+    @endphp
 @endsection
 
 @section('scripts')
     <script>
         var order_items = {!! json_encode($orders, JSON_HEX_TAG) !!};
         var totalPrice = 0;
-        const totalPriceDiv = document.getElementById('total-price');
+        var totalPriceDiv = document.getElementById('total-price');
         // alert(order_items.id);
         order_items.forEach((item) => {
             let id = item.id + "price";
@@ -150,4 +153,136 @@
        
         totalPriceDiv.innerHTML = totalPrice;
     </script>
+
+
+<script>
+    const c = console.log.bind(console);
+    
+    let addon = {!! json_encode($addons, JSON_HEX_TAG) !!};
+    var user = {!! Auth()->user()->toJson() !!};
+    var timeStamp = {!! json_encode($timestamp, JSON_HEX_TAG) !!};
+    const navBalance = document.getElementById("nav-balance");
+
+
+    
+    var moneyLeft = parseInt(navBalance.innerHTML) - parseInt(totalPrice);
+
+
+    
+    // navBalance.innerHTML = moneyLeft;
+    navBalance.innerHTML = moneyLeft;
+
+
+   
+
+    addon.forEach(item => {
+       
+        c(item.id)
+
+        let minusButtonId = item.id + 'minusButton';
+        let plusButtonId = item.id + 'plusButton';
+        let digitId = item.id + 'digit';
+        let btnId = item.id + 'button';
+        const minusBtn = document.getElementById(minusButtonId);
+
+        const plusBtn = document.getElementById(plusButtonId);
+        const submitBtn = document.getElementById(btnId);
+        const digit = document.getElementById(digitId);
+
+        // c(digit.innerHTML);
+        // submitBtn.addEventListener("click", function() {
+        //     let totalPrice = parseInt(digit.innerHTML) * item.price;
+        //     var timestamp = new Date().getTime();
+        //     // itemSubmit(item.id, digit.innerHTML, user.id, 0, totalPrice, timeStamp, timeStamp)
+        // });
+
+        minusBtn.addEventListener("click", function() {
+            c('minusClicked');
+            let number = parseInt(digit.innerHTML) - 1;
+
+            if (number < 0) {
+                number = 0;
+            } else {
+                moneyLeft += parseInt(item.price);
+                totalPrice -= parseInt(item.price);
+            }
+            navBalance.innerHTML = moneyLeft;
+            digit.innerHTML = number;
+            totalPriceDiv.innerHTML = totalPrice;
+            // alert(moneyLeft);
+
+
+        });
+        plusBtn.addEventListener("click", function() {
+            c('plusClicked');
+            let number = parseInt(digit.innerHTML) + 1;
+
+
+
+            moneyLeft -= parseInt(item.price);
+            if (moneyLeft > 0) {
+
+                navBalance.innerHTML = moneyLeft;
+
+                digit.innerHTML = number;
+                totalPrice += parseInt(item.price);
+            } else {
+                moneyLeft += parseInt(item
+                    .price); //as clicking after minimum balance does its moneyleft calcuations 
+                
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'balance limit exceeded',
+                    // footer: '<a href="">Why do I have this issue?</a>'
+                })
+            }
+            totalPriceDiv.innerHTML = totalPrice;
+
+
+        });
+    })
+    
+
+    // let itemSubmit = (itemId, quantity, client_id, order_status, total_price, create_time, update_time) => {
+
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/api/order_insert', //api post call
+    //         data: {
+    //             _token: "{{ csrf_token() }}",
+    //             item_id: itemId,
+    //             quantity: quantity,
+    //             client_id: client_id,
+    //             order_status: order_status,
+    //             total_price: total_price,
+    //             created_at: create_time,
+    //             updated_at: update_time,
+
+
+
+    //         },
+
+    //         error(err) {
+    //             console.log(err.responseJSON.message);
+    //             // Swal.fire(
+    //             //     'errors!',
+    //             //     err.responseJSON.message,
+    //             //     'error'
+    //             // )
+    //         },
+
+    //         success(response) {
+    //             console.log(response.message);
+    //             Swal.fire(
+    //                 'Success!',
+    //                 response.message,
+    //                 'success'
+    //             )
+    //         },
+    //     });
+
+    // }
+</script>
 @endsection
