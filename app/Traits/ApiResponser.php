@@ -8,8 +8,8 @@ trait ApiResponser
     {
         return response([
             'success' => true,
-            'data' => $data,
             'message' => $message,
+            'data' => $data,
         ], $status);
     }
 

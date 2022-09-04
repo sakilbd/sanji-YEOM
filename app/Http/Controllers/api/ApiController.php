@@ -11,6 +11,7 @@ use App\Models\ItemCatagory;
 use App\Models\UsersInfo;
 use App\Models\OrderManagement;
 use App\Traits\ApiResponser;
+use App\Models\addOns;
 
 class ApiController extends Controller
 {
@@ -96,5 +97,10 @@ class ApiController extends Controller
     OrderManagement::create($request->all());
     return $this->success("Item Added To Cart",'');
     
+  }
+
+  public function addOns_insert(Request $request){
+    $data = addOns::create($request->all());
+    return $this->success("Addons Added",$data);
   }
 }

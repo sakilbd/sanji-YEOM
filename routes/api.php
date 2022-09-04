@@ -28,6 +28,8 @@ Route::post('/restaurant_add', [ApiController::class, 'restaurant_add'])->name('
 Route::post('/catagory_add', [ApiController::class, 'catagory_add'])->name('catagory_add');
 Route::post('/user_info_add', [ApiController::class, 'user_info_add'])->name('user_info_add');
 Route::post('/order_insert', [ApiController::class, 'order_insert'])->name('order_insert');
+Route::post('/addOns_insert', [ApiController::class, 'addOns_insert'])->name('addOns_insert');
+
 
 
 

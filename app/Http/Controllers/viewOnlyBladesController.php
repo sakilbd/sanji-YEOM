@@ -9,7 +9,7 @@ use App\Models\ItemList;
 use App\Models\OrderManagement;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UsersInfo;
-
+use App\Models\addOns;
 
 class viewOnlyBladesController extends Controller
 {
@@ -33,8 +33,9 @@ class viewOnlyBladesController extends Controller
     }
     public function order_cart(){
         $order = OrderManagement::with("itemInfo")->get();
+        $addons = addOns::get();
         // return $order;
         
-        return view('pages.order_cart',compact('order'));
+        return view('pages.order_cart',compact('order','addons'));
     }
 }
