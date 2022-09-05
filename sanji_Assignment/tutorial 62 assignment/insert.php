@@ -87,7 +87,16 @@ if (isset($_POST['submit_data'])) {
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Type</label>
-                <input id="2last_name" name="type" type="text" class="form-control">
+                <!-- <input id="2last_name" name="type" type="text" class="form-control"> -->
+                <select name="type" class="form-control" id="exampleSelect">
+                    <option>Select Item</option>
+                    <option>type-1</option>
+                    <option>type-2</option>
+                    <option>type-3</option>
+                    <option>type-4</option>
+                    <option>type-5</option>
+                </select>
+
 
             </div>
             <div class="form-group">
@@ -102,7 +111,15 @@ if (isset($_POST['submit_data'])) {
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Region</label>
-                <input id="2ConfirmPass" name="region" type="text" class="form-control">
+                <!-- <input id="2ConfirmPass" name="region" type="text" class="form-control"> -->
+                <select name="region" class="form-control" id="exampleSelect">
+                    <option>Select Item</option>
+                    <option>region-1</option>
+                    <option>region-2</option>
+                    <option>region-3</option>
+                    <option>region-4</option>
+                    <option>region-5</option>
+                </select>
 
             </div>
             <div class="form-group">
@@ -112,8 +129,9 @@ if (isset($_POST['submit_data'])) {
 
         </form>
     </div>
-    <?php include 'reg_model.php';?>
+    <?php include 'reg_model.php'; ?>
 </body>
 <script type="text/javascript" src="script.js">
-    </script>
+</script>
+
 </html>

@@ -91,7 +91,7 @@ $data = $result->fetchArray(); // set the row in $data
             </form>
         </table> -->
         <form action="" method="post">
-            <div class="badge badge-success" id="message" ><?php echo $message; ?></div>
+            <div class="badge badge-success" id="message"><?php echo $message; ?></div>
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="form-group">
                 <label for="exampleInputEmail1">Name:</label>
@@ -100,7 +100,15 @@ $data = $result->fetchArray(); // set the row in $data
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Type</label>
-                <input id="2last_name" name="type" type="text" class="form-control" value="<?php echo $data['type']; ?>">
+                <!-- <input id="2last_name" name="type" type="text" class="form-control" value="<?php echo $data['type']; ?>"> -->
+                <select name="type" class="form-control" id="exampleSelect" value="<?php echo $data['type']; ?>">
+                    <option>Select Item</option>
+                    <option>type-1</option>
+                    <option>type-2</option>
+                    <option>type-3</option>
+                    <option>type-4</option>
+                    <option>type-5</option>
+                </select>
 
             </div>
             <div class="form-group">
@@ -115,7 +123,15 @@ $data = $result->fetchArray(); // set the row in $data
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Region</label>
-                <input id="2ConfirmPass" name="region" type="text" class="form-control" value="<?php echo $data['region']; ?>">
+                <!-- <input id="2ConfirmPass" name="region" type="text" class="form-control" value="<?php echo $data['region']; ?>"> -->
+                <select name="region" class="form-control" id="exampleSelect" value="<?php echo $data['region']; ?>">
+                    <option>Select Item</option>
+                    <option>region-1</option>
+                    <option>region-2</option>
+                    <option>region-3</option>
+                    <option>region-4</option>
+                    <option>region-5</option>
+                </select>
 
             </div>
             <div class="form-group">
@@ -125,8 +141,9 @@ $data = $result->fetchArray(); // set the row in $data
 
         </form>
     </div>
-    <?php include 'reg_model.php';?>
+    <?php include 'reg_model.php'; ?>
 </body>
 <script type="text/javascript" src="script.js">
-    </script>
+</script>
+
 </html>

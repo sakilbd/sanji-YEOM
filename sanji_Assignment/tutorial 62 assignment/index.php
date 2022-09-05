@@ -3,7 +3,7 @@
 
     <head>
 
-        <title>Index.html</title>
+        <title>index.html</title>
 
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +24,7 @@
 
 
 
-        <div class="topnav">
+    <div class="topnav">
             <a class="" href="index.php">Home</a>
             <a type="button" data-toggle="modal" data-target="#myModal" href="#registration">Registration</a>
             <a class="active" href="details.php">Details</a>
@@ -44,12 +44,12 @@
 
         <div class="image-container">
 
-            <img src="https://thumbs.dreamstime.com/b/idyllic-green-fields-vibrant-blue-sky-panoramic-landscape-vast-hills-fluffy-white-clouds-76383482.jpg" alt="vineyard in italy" style="width:100%;">
+            <img src="img/italy_vineyard.jpg" alt="vineyard in italy" style="width:100%;">
 
             <div class="text-container">
                 <div class="col-md-8">
                     <div class=""><b>Explore Australian Wine</b></div>
-                    <div class="">The Australian wine industry is one of the worlds's largest exporters of wine, with approximately 800 million out of the 1.2 to 1.3 billion litres produced annually exported to overseas market The wine industry is a significant contributeor
+                    <div class="">The wine industry of Australia is known to be extremely renowned all over the globe as it exports wine in a gargentuan quantity almost close to 800 million . 1.2 to 1.3 billion litres is produced annually while rest is exported to overseas market .The wine industry emmensely contributes to the
                         to the Australian economy through production,employment,export and tourism
                     </div>
                 </div>
@@ -67,9 +67,9 @@
         <div class="container image-container">
             <div class="column">
 
-                <img src="https://images.pexels.com/photos/3573711/pexels-photo-3573711.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="People are cheering with wine glasses" width="300" height="250">
+                <img src="img/red_wine.jpg" alt="People are cheering with wine glasses" width="300" height="250">
                 <div class="large-text">Red Wine</div>
-                <div class="small-text">Red Wine</div>
+                <div class="small-text">Red Wine is made from dark colored grapes</div>
                 <button class="btn btn-primary">View details>></button>
 
             </div>
@@ -77,9 +77,9 @@
             <div class="column">
 
 
-                <img src="https://images.pexels.com/photos/3573711/pexels-photo-3573711.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="People are cheering with wine glasses" width="300" height="250">
-                <div class="large-text">Red Wine</div>
-                <div class="small-text">Red Wine</div>
+                <img src="img/white_wine.jpg" alt="People are cheering with wine glasses" width="300" height="250">
+                <div class="large-text">White Wine</div>
+                <div class="small-text">White Wine is fermented without skin contact</div>
                 <button class="btn btn-primary">View details>></button>
 
 
@@ -88,9 +88,9 @@
             <div class="column">
 
 
-                <img src="https://media.istockphoto.com/photos/wine-tasting-at-restaurant-picture-id476976729?k=20&m=476976729&s=612x612&w=0&h=5ioxIi1WAChfSxP_0S-WZjbgH6J3pUU2wBLjnca_i7o=" alt="People are cheering with wine glasses" width="300" height="250">
-                <div class="large-text">Red Wine</div>
-                <div class="small-text">Red Wine</div>
+                <img src="img/sparkling_wine.jpg" alt="People are cheering with wine glasses" width="300" height="250">
+                <div class="large-text">Sparkling Wine</div>
+                <div class="small-text">Sparkling Wine has significant Carbon Di Oxide</div>
                 <button class="btn btn-primary">View details>></button>
 
             </div>
@@ -105,7 +105,7 @@
       approximately 800 million out of the 1.2 to 1.3 billion litres produced annually exported to overseas market
       The wine industry is a significant contributeor to the Australian economy through production,employment,export and
       tourism </p>  -->
-
+<!--
         <div class="footer-part">
             <div class="footer-part">
                 <h3>Location of Vineyards</h3>
@@ -119,7 +119,7 @@
                     <li>Tasmania</li>
                 </ul>
             </div>
-
+-->
             <div class="footer-part footer-part-colored">
                 <hr>Do you want to register ? Follow this link :</hr> <a type="button" data-toggle="modal" data-target="#myModal" href="#registration"> Click Me </a>
                 <p>For more information :</p> <a href="details.html">Click Me </a>
@@ -143,7 +143,7 @@
                         <form>
                             <div id="message" class="text-danger">**Please type first and last Name</div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">First Nmae</label>
+                                <label for="exampleInputEmail1">First Name</label>
                                 <input id="first_name" type="text" class="form-control">
 
                             </div>
