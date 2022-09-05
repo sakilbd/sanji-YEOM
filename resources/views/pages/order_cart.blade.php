@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
         <div class="row">
             <aside class="col-lg-7">
@@ -84,7 +83,7 @@
                                     <tr>
 
                                         <td>{{ $item->name }}</td>
-                                        <td>${{ $item->price }}</td>
+                                        <td>$<span id="addOn_price">{{ $item->price }}</span></td>
                                         <td>
                                             <div>
                                                 <div class="digit-right-portion">
@@ -114,7 +113,7 @@
                 <div class="card">
                     <div class="card-body">
                         <dl class="dlist-align">
-                            <dt>Total price: $ <span id="total-price" class="text-right">0</span></dt>
+                            <dt>Total price: $ <span id="total-price" class="text-right"></span></dt>
                             {{-- <dd >69.97</dd> --}}
                         </dl>
                         {{-- <dl class="dlist-align">
@@ -127,14 +126,14 @@
                     </dl> --}}
                         <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make
                             Purchase </a> <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2"
-                            data-abc="true">Continue Shopping</a>
+                            data-abc="true" id="OrderSubmitButton">Confirm Order</a>
                     </div>
                 </div>
             </aside>
         </div>
     </div>
     @php
-    $timestamp = Carbon\Carbon::now()->toDateTimeString();
+        $timestamp = Carbon\Carbon::now()->toDateTimeString();
     @endphp
 @endsection
 
@@ -148,141 +147,161 @@
             let id = item.id + "price";
             const priceId = document.getElementById(id);
             totalPrice += parseInt(priceId.innerHTML);
-           
+
         });
-       
+
         totalPriceDiv.innerHTML = totalPrice;
     </script>
 
 
-<script>
-    const c = console.log.bind(console);
-    
-    let addon = {!! json_encode($addons, JSON_HEX_TAG) !!};
-    var user = {!! Auth()->user()->toJson() !!};
-    var timeStamp = {!! json_encode($timestamp, JSON_HEX_TAG) !!};
-    const navBalance = document.getElementById("nav-balance");
+    <script>
+        const c = console.log.bind(console);
 
+        let addon = {!! json_encode($addons, JSON_HEX_TAG) !!};
+        var user = {!! Auth()->user()->toJson() !!};
+        let btnId = 'OrderSubmitButton';
 
-    
-    var moneyLeft = parseInt(navBalance.innerHTML) - parseInt(totalPrice);
+        var timeStamp = {!! json_encode($timestamp, JSON_HEX_TAG) !!};
+        const navBalance = document.getElementById("nav-balance");
 
-
-    
-    // navBalance.innerHTML = moneyLeft;
-    navBalance.innerHTML = moneyLeft;
-
-
-   
-
-    addon.forEach(item => {
-       
-        c(item.id)
-
-        let minusButtonId = item.id + 'minusButton';
-        let plusButtonId = item.id + 'plusButton';
-        let digitId = item.id + 'digit';
-        let btnId = item.id + 'button';
-        const minusBtn = document.getElementById(minusButtonId);
-
-        const plusBtn = document.getElementById(plusButtonId);
         const submitBtn = document.getElementById(btnId);
-        const digit = document.getElementById(digitId);
-
-        // c(digit.innerHTML);
-        // submitBtn.addEventListener("click", function() {
-        //     let totalPrice = parseInt(digit.innerHTML) * item.price;
-        //     var timestamp = new Date().getTime();
-        //     // itemSubmit(item.id, digit.innerHTML, user.id, 0, totalPrice, timeStamp, timeStamp)
-        // });
-
-        minusBtn.addEventListener("click", function() {
-            c('minusClicked');
-            let number = parseInt(digit.innerHTML) - 1;
-
-            if (number < 0) {
-                number = 0;
-            } else {
-                moneyLeft += parseInt(item.price);
-                totalPrice -= parseInt(item.price);
-            }
-            navBalance.innerHTML = moneyLeft;
-            digit.innerHTML = number;
-            totalPriceDiv.innerHTML = totalPrice;
-            // alert(moneyLeft);
 
 
-        });
-        plusBtn.addEventListener("click", function() {
-            c('plusClicked');
-            let number = parseInt(digit.innerHTML) + 1;
+        var moneyLeft = parseInt(navBalance.innerHTML) - parseInt(totalPrice);
 
 
 
-            moneyLeft -= parseInt(item.price);
-            if (moneyLeft > 0) {
+        // navBalance.innerHTML = moneyLeft;
+        navBalance.innerHTML = moneyLeft;
 
+
+
+
+        addon.forEach(item => {
+
+            c(item.id)
+
+            let minusButtonId = item.id + 'minusButton';
+            let plusButtonId = item.id + 'plusButton';
+            let digitId = item.id + 'digit';
+
+            const minusBtn = document.getElementById(minusButtonId);
+
+            const plusBtn = document.getElementById(plusButtonId);
+
+            const digit = document.getElementById(digitId);
+
+            // c(digit.innerHTML);
+
+
+            minusBtn.addEventListener("click", function() {
+                c('minusClicked');
+                let number = parseInt(digit.innerHTML) - 1;
+
+                if (number < 0) {
+                    number = 0;
+                } else {
+                    moneyLeft += parseInt(item.price);
+                    totalPrice -= parseInt(item.price);
+                }
                 navBalance.innerHTML = moneyLeft;
-
                 digit.innerHTML = number;
-                totalPrice += parseInt(item.price);
-            } else {
-                moneyLeft += parseInt(item
-                    .price); //as clicking after minimum balance does its moneyleft calcuations 
-                
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'balance limit exceeded',
-                    // footer: '<a href="">Why do I have this issue?</a>'
-                })
-            }
-            totalPriceDiv.innerHTML = totalPrice;
+                totalPriceDiv.innerHTML = totalPrice;
+                // alert(moneyLeft);
 
 
+            });
+            plusBtn.addEventListener("click", function() {
+                c('plusClicked');
+                let number = parseInt(digit.innerHTML) + 1;
+
+
+
+                moneyLeft -= parseInt(item.price);
+                if (moneyLeft > 0) {
+
+                    navBalance.innerHTML = moneyLeft;
+
+                    digit.innerHTML = number;
+                    totalPrice += parseInt(item.price);
+                } else {
+                    moneyLeft += parseInt(item
+                        .price); //as clicking after minimum balance does its moneyleft calcuations 
+
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'balance limit exceeded',
+                        // footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                }
+                totalPriceDiv.innerHTML = totalPrice;
+
+
+            });
         });
-    })
-    
-
-    // let itemSubmit = (itemId, quantity, client_id, order_status, total_price, create_time, update_time) => {
-
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: '/api/order_insert', //api post call
-    //         data: {
-    //             _token: "{{ csrf_token() }}",
-    //             item_id: itemId,
-    //             quantity: quantity,
-    //             client_id: client_id,
-    //             order_status: order_status,
-    //             total_price: total_price,
-    //             created_at: create_time,
-    //             updated_at: update_time,
 
 
+        submitBtn.addEventListener("click", function() {
+            let addOnsPriceObj = {} ;
+            addon.forEach(item => {
+                let digitId = item.id + 'digit';
+                const digit = document.getElementById(digitId);
+                if (digit.innerHTML > 0) {
+                    addOnsPriceObj[item.id] = digit.innerHTML*item.price;
+                    // alert(digit.innerHTML)
+                };
 
-    //         },
+                
+            })
+            alert(timeStamp)
+            alert(user.id)
+            alert(JSON.stringify(addOnsPriceObj))
+            let totalPrice = totalPriceDiv.innerHTML;
+            alert(totalPrice);
+            // var timestamp = new Date().getTime();
+            // itemSubmit(user.id, addOnsPriceObj , totalPrice, timeStamp, timeStamp)
+        });
 
-    //         error(err) {
-    //             console.log(err.responseJSON.message);
-    //             // Swal.fire(
-    //             //     'errors!',
-    //             //     err.responseJSON.message,
-    //             //     'error'
-    //             // )
-    //         },
 
-    //         success(response) {
-    //             console.log(response.message);
-    //             Swal.fire(
-    //                 'Success!',
-    //                 response.message,
-    //                 'success'
-    //             )
-    //         },
-    //     });
+        // let itemSubmit = ( client_id, addOnsInfo, total_price, create_time, update_time) => {
 
-    // }
-</script>
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '/api/confirm_order', //api post call
+        //         data: {
+        //             _token: "{{ csrf_token() }}",
+                   
+        //             client_id: client_id,
+        //             addOns: addOnsInfo,
+        //             total_price: total_price,
+        //             created_at: create_time,
+        //             updated_at: update_time,
+
+
+
+        //         },
+
+        //         error(err) {
+        //             console.log(err.responseJSON.message);
+        //             // Swal.fire(
+        //             //     'errors!',
+        //             //     err.responseJSON.message,
+        //             //     'error'
+        //             // )
+        //         },
+
+        //         success(response) {
+        //             console.log(response.message);
+        //             Swal.fire(
+        //                 'Success!',
+        //                 response.message,
+        //                 'success'
+        //             )
+        //         },
+        //     });
+
+        // }
+    </script>
 @endsection

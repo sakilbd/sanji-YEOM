@@ -103,4 +103,8 @@ class ApiController extends Controller
     $data = addOns::create($request->all());
     return $this->success("Addons Added",$data);
   }
+
+  public function confirm_order(Request $request){
+    return $this->success("Order Confirmed",$request->all());
+  }
 }

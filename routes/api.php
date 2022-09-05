@@ -29,6 +29,10 @@ Route::post('/catagory_add', [ApiController::class, 'catagory_add'])->name('cata
 Route::post('/user_info_add', [ApiController::class, 'user_info_add'])->name('user_info_add');
 Route::post('/order_insert', [ApiController::class, 'order_insert'])->name('order_insert');
 Route::post('/addOns_insert', [ApiController::class, 'addOns_insert'])->name('addOns_insert');
+Route::post('/confirm_order', [ApiController::class, 'confirm_order'])->name('confirm_order');
+
+
+
 
 
 
