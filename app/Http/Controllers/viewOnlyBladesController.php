@@ -38,4 +38,15 @@ class viewOnlyBladesController extends Controller
         
         return view('pages.order_cart',compact('order','addons'));
     }
+    public function table_gen(){
+    
+        $filename = 'ltCodedata.json';
+        $data = file_get_contents($filename);
+        $data = json_encode($data);
+        // return $data;
+        
+        return view('table',compact('data'));
+    }
+
+    
 }

@@ -27,6 +27,11 @@ Route::get('/restaurant-list', [viewOnlyBladesController::class, 'restaurant_lis
 Route::get('/item_order_page/{restaurant_id}', [viewOnlyBladesController::class, 'item_order_page'])->name('item_order_page');
 Route::get('/order_cart', [viewOnlyBladesController::class, 'order_cart'])->name('order_cart');
 
+Route::get('/table_gen', [viewOnlyBladesController::class, 'table_gen'])->name('table_gen');
+
+
+
+
 
 
 
